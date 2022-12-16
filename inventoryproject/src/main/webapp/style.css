@@ -1,0 +1,38 @@
+body{
+	background:url("images/inventory.jpg");
+	padding:10px 20px;
+	background-size:cover;
+	min-height:100%;
+	font-size:18px;
+	display:flex;
+	flex-flow:column;
+	align-items:center;
+}
+.formI{
+display:flex;
+padding:10px;
+}
+center{
+	width:100%;
+}
+.addcu > .form-control{
+	width:75%;
+}
+.form-group{
+	padding-top:15px;
+}
+.btn:hover{
+	border:3px solid red;
+	background:black;
+	border-box:box-sizing;
+}
+.btn{
+	box-sizing: border-box;
+}
+thead{  
+background-color:#005cb9;}  
+tbody{  
+background-color: #d4caca;}  
+th,td{  
+padding: 12px;}  
+       

@@ -1,0 +1,145 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>customer Registration Form</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
+        <link href="style.css" rel="stylesheet" />
+        <script src="validation.js"></script>
+    </h:head>
+    <h:body class="bg">
+        <p class="text-danger" style="text-align: center">
+            <h:outputText value="#{param['exist']}" />
+        </p>
+        <center>
+            <h:form id="formaddcust" class="form-horizontal addcu">
+                <div class="form-group">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <h2 style="text-align: center">Provide Following Details</h2>
+                    </div>
+                </div>
+                <hr />
+                <div class="form-group">
+                    <h:outputLabel for="customerName" class="control-label col-sm-4">customer Name</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputText value="#{customer.customerName}" class="form-control" id="customerName1" 
+                        required="true" validatorMessage="Customer name can include only uppercase and lowercase letters"
+                        requiredMessage="This field is required and cannot be empty">
+                        	<f:validateRegex pattern="^([a-zA-Z]+(.)?[\s]*)$" />
+                        </h:inputText>
+                        <h:message for="customerName" style ="color:red" />
+                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="customerPhoneNo" class="control-label">CustomerPhoneno</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputText id="customerPhoneNo" value="#{customer.customerPhoneNo}" class="form-control" 
+                        name="customerPhoneNo" validatorMessage="Customer Phone Number is not in proper format" required="true"
+                        requiredMessage="This field is required and cannot be empty">
+                    	<f:validateRegex pattern="[0-9]{10}"/>
+                    </h:inputText>
+                    <h:message for="customerPhoneNo" style ="color:red"></h:message>
+                    
+                    
+                    </div>	
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="userName" class="control-label col-sm-4">User Name</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputText id="userName" value="#{customer.userName}" class="form-control" 
+                        name="userName" validatorMessage="User name is not proper format"  required="true"
+                        requiredMessage="This field is required and cannot be empty">
+                        <f:validateRegex pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"/>
+                        </h:inputText>
+                        <h:message for="userName" style ="color:red"/>
+                        
+                      
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="passcode" class="control-label">Password</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputSecret id="passcode" value="#{customer.passCode}" class="form-control" 
+                        name="passcode" validatorMessage="Password Requirement not fulfilled" required="true"
+                        requiredMessage="This field is required and cannot be empty">
+                        <f:validateRegex pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"/>
+                        </h:inputSecret>
+                        <h:message for="passcode" style ="color:red"></h:message>
+                        
+                        
+                    </div>
+                </div>
+                <br></br>
+                <div class="form-group">
+                    <h:outputLabel for="gender" class="control-label col-sm-4">Gender</h:outputLabel>
+                    <div>
+                        <h:selectOneRadio id="gender" value="#{customer.gender}" validatorMessage="Gender is required" class="form-check-inpu">
+                            <f:selectItem itemValue="MALE" itemLabel="MALE" />
+                            <f:selectItem itemValue="FEMALE" itemLabel="FEMALE" />
+                            <f:validateRequired />
+                        </h:selectOneRadio>
+                    </div>
+                </div>
+                <br></br>
+                <div class="form-group">
+                    <h:outputLabel for="address1" class="control-label col-sm-4">Address 1</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputText id="address1" value="#{customer.address1}" class="form-control" 
+                        name="address1" validatorMessage="Address1 is in wrong format" required="true"
+                        requiredMessage="This field is required and cannot be empty">
+                        <f:validateRegex pattern="^[#.0-9a-zA-Z\s,-]+$"/>
+                        </h:inputText>
+                        <h:message for="address1" style ="color:red"></h:message>
+                        
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="address2" class="control-label col-sm-4">Address 2</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputText id="address2" value="#{customer.address2}" class="form-control" 
+                        name="address2" validatorMessage="Address2 is not in proper format" required="true"
+                        requiredMessage="This field is required and cannot be empty">
+                        <f:validateRegex pattern="^[#.0-9a-zA-Z\s,-]+$"/>
+                         </h:inputText>
+                        <h:message for="address2" style ="color:red"></h:message>
+                       
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="address" class="control-label col-sm-4">City</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputText id="address" value="#{customer.city}" class="form-control" 
+                        name="address" validatorMessage="City Name is not in proper format" required="true"
+                        requiredMessage="This field is required and cannot be empty">
+                        <f:validateRegex pattern="^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$"/>
+                        
+                        </h:inputText>
+                         <h:message for="address"></h:message>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="zipcode" class="control-label col-sm-4">Zipcode</h:outputLabel>
+                    <div class="col-sm-3">
+                        <h:inputText id="zipcode" value="#{customer.zipcode}" class="form-control" 
+                        name="zipcode" validatorMessage="Zipcode is  not in Proper format" required="true"
+                        requiredMessage="This field is required and cannot be empty">
+                        <f:validateRegex pattern="[0-9]{6}"/>
+                        </h:inputText>
+						<h:message for="zipcode" style ="color:red"></h:message>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3">
+                        <div>
+                            <h:commandButton value="Save" action="#{customerDAO.addCustomer(customer)}" class="btn btn-success" style="width: 80px;"></h:commandButton>
+                        </div>
+                        <br></br>
+                        <div></div>
+                    </div>
+                </div>
+            </h:form>
+        </center>
+    </h:body>
+</html>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"  
+        xmlns:h="http://java.sun.com/jsf/html" 
+        xmlns:ui = "http://java.sun.com/jsf/facelets">
+<h:head>
+  <meta charset="utf-8" ></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <title>Data Tables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous"></link>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="style.css"></link>
+    <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></link>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+
+</h:head>
+<h:body>
+<ui:include src="/AdminMenu.xhtml" />
+
+<script>
+	$(document).ready(function () {
+	    $("#myTable").DataTable();
+	});
+	</script>
+    <center>
+    </center>
+    <h:dataTable id="myTable" value="#{customerDAO.showCustomer()}" var="p" border="3">
+        <h:column>
+            <f:facet name="header">Customer Id</f:facet>
+            <h:outputText value="#{p.customerid}"/>
+        </h:column>    
+        <h:column>
+            <f:facet name="header">Customer Name</f:facet>
+            <h:outputText value="#{p.customerName}"/>
+        </h:column>    
+        <h:column>
+            <f:facet name="header">Customer Phone</f:facet>
+            <h:outputText value="#{p.customerPhoneNo}"/>
+        </h:column>    
+        <h:column>
+            <f:facet name="header">Gender</f:facet>
+            <h:outputText value="#{p.gender}"/>
+        </h:column>    
+        <h:column>
+            <f:facet name="header">Address 1</f:facet>
+            <h:outputText value="#{p.address1}"/>
+        </h:column>    
+        <h:column>
+            <f:facet name="header">Address 2</f:facet>
+            <h:outputText value="#{p.address2}"/>
+        </h:column>    
+        <h:column>
+            <f:facet name="header">Zipcode</f:facet>
+            <h:outputText value="#{p.zipcode}"/>
+        </h:column>    
+        <h:column>
+            <f:facet name="header">City</f:facet>
+            <h:outputText value="#{p.city}"/>
+        </h:column>    
+</h:dataTable>
+</h:body>
+</html>

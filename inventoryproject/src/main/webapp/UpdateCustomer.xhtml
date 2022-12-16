@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+        <h:body>
+        <h:form>
+                <h2 style="text-align: center" class="col-sm-4">Update Customer</h2>
+            <hr/>
+            
+
+Customer Id :
+                    <h:inputText id="customerid" value="#{customer.customerid}" /> <br/>
+Customer Name :
+                    <h:inputText id="customerName" value="#{customer.customerName}" /> <br/>
+Customer Phone Number :
+                    <h:inputText id="customerPhoneNo" value="#{customer.customerPhoneNo}" /> <br/>
+Gender :
+                    <h:selectOneRadio value="#{customer.gender}">
+					   <f:selectItem itemValue="1" itemLabel="MALE" />
+					   <f:selectItem itemValue="2" itemLabel="FEMALE" />           
+					</h:selectOneRadio>
+Address1 :
+                    <h:inputText id="address1" value="#{customer.address1}" /> <br/>                    
+Address2 :
+                    <h:inputText id="addrress2" value="#{customer.address2}"/> <br/>
+Zipcode :
+                    <h:inputText id="zipcode" value="#{customer.zipcode}"/> <br/>
+UserName :
+                    <h:inputText id="username" value="#{customer.userName}"/> <br/>
+Password :
+                    <h:inputText id="passCode" value="#{customer.passCode}"/> <br/>
+City :
+                    <h:inputText id="city" value="#{customer.city}"/> <br/>
+                    
+                    <h:commandButton value="Update" action="#{customerDAO.updateCustomer(customer)}" />
+        </h:form>
+    </h:body>
+    
+</html>

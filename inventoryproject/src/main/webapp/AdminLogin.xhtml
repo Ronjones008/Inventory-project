@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:f="http://java.sun.com/jsf/core">
+  <h:head>
+<title>Admin Login</title> <br></br>
+ <style>
+   label{
+   text-align: center;
+   
+   }
+   
+ 
+
+   </style>
+   
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   </link>
+ <link href="style.css" rel="stylesheet"></link>
+
+  </h:head>
+       <h:body>
+       
+          <h:form style="display: flex; flex-flow: column;">
+<p class="text-danger" style="text-align: center"></p>
+          <center>
+          <h1>Admin Login</h1><br></br>
+User Name
+<h:inputText id="u" value="#{admin.userName}" required="true"  class="form-control" requiredMessage="Field is required" maxlength="15"></h:inputText>&nbsp;&nbsp;&nbsp;&nbsp;
+<h:message for="u" style="color:red;"/><br/><br/>
+Password
+<h:inputSecret value="#{admin.passWord}" id="p" class="form-control" required="true" requiredMessage="Field is required" maxlength="15"></h:inputSecret>&nbsp;&nbsp;&nbsp;&nbsp;
+<h:message for="p" style="color:red;"/><br/><br/>
+<h:commandButton action="#{adminDAO.validate(admin)}" value="Login" class="btn btn-primary"></h:commandButton>
+
+
+              </center>
+         </h:form>
+        
+       </h:body>
+     </html>
